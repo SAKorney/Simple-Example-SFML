@@ -11,6 +11,8 @@
  * Created on 28 августа 2017 г., 18:14
  */
 
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "Engine.h"
 
 Engine::Engine() {    
@@ -20,7 +22,7 @@ Engine::~Engine() {
 }
 
 sf::CircleShape& Engine::getShape() const{
-    return m_shape.GetShape();
+    return m_shape.getShape();
 }
 
 void Engine::update(){
@@ -35,4 +37,3 @@ void Engine::update(){
     
     m_shape.move();
 }
-

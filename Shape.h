@@ -18,11 +18,11 @@
 #include <SFML/Graphics/CircleShape.hpp>
 
 
-class Shape {
+class Shape : public sf::Drawable {
 public:
     Shape();
     const sf::Vector2f& getPosition() const;
-    sf::CircleShape& GetShape() const;
+    sf::CircleShape& getShape() const;
     void changeDirectionToX();
     void changeDirectionToY();    
     void move();
@@ -32,6 +32,9 @@ private:
     sf::CircleShape *m_shape;
     sf::Vector2f *m_direction;
     bool m_isColorChange;
+    virtual void draw(sf::RenderTarget& target, 
+            sf::RenderStates states) const override;
+
 };
 
 #endif /* SHAPE_H */

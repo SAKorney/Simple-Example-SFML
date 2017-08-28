@@ -25,8 +25,7 @@ int main(int argc, char** argv) {
     sf::RenderWindow window(sf::VideoMode(500,500), "ScreenSaver");
     window.setFramerateLimit(60);
     
-    Engine engine;
-    sf::CircleShape& circle = engine.getShape();  
+    Engine engine;    
     
     sf::Clock clock;   
     sf::Time elapsed = sf::Time::Zero;
@@ -52,8 +51,8 @@ int main(int argc, char** argv) {
         }
           
         // Render
-        window.clear();
-        window.draw(circle);
+        window.clear();        
+        window.draw(engine.getShape());
         
         window.display();
     }

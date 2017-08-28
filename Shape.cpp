@@ -11,6 +11,8 @@
  * Created on 28 августа 2017 г., 17:56
  */
 
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "Shape.h"
 
 Shape::Shape() : m_isColorChange { false }
@@ -26,7 +28,7 @@ Shape::~Shape() {
     delete m_direction;
 }
 
-sf::CircleShape& Shape::GetShape() const{
+sf::CircleShape& Shape::getShape() const{
     return *m_shape;
 }
 
@@ -57,3 +59,6 @@ void Shape::move(){
     m_shape-> move(*m_direction);
 }
 
+void Shape::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+    target.draw(*m_shape, states);
+}
