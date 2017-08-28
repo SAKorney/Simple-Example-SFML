@@ -18,15 +18,15 @@
 #include <SFML/Graphics/CircleShape.hpp>
 
 
-class Shape : public sf::Drawable {
+class Circle : public sf::Drawable {
 public:
-    Shape();
+    Circle();
     const sf::Vector2f& getPosition() const;
     sf::CircleShape& getShape() const;
     void changeDirectionToX();
     void changeDirectionToY();    
     void move();
-    virtual ~Shape();
+    virtual ~Circle();
 private:
     void m_changeFillColor();
     sf::CircleShape *m_shape;

@@ -18,13 +18,14 @@
 
 class Engine {
 public:
-    Engine();
+    Engine(sf::Vector2f& sizeOfWindow);
     Engine(const Engine& orig) = delete;
     void update();
     sf::CircleShape& getShape() const;
     virtual ~Engine();
 private:
-    Shape m_shape;
+    Circle m_shape;
+    sf::Vector2f& m_sizeOfWindow;
 };
 
 #endif /* ENGINE_H */

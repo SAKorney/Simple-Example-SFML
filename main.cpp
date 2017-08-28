@@ -22,10 +22,13 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
-    sf::RenderWindow window(sf::VideoMode(500,500), "ScreenSaver");
+    sf::Vector2f sizeOfWindow(500, 500);   
+    
+    sf::RenderWindow window(sf::VideoMode(sizeOfWindow.x, sizeOfWindow.y),
+                            "ScreenSaver");
     window.setFramerateLimit(60);
     
-    Engine engine;    
+    Engine engine(sizeOfWindow);    
     
     sf::Clock clock;   
     sf::Time elapsed = sf::Time::Zero;

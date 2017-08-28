@@ -15,7 +15,7 @@
 
 #include "Engine.h"
 
-Engine::Engine() {    
+Engine::Engine(sf::Vector2f& sizeOfWindow) : m_sizeOfWindow {sizeOfWindow} {    
 }
 
 Engine::~Engine() {
@@ -27,11 +27,14 @@ sf::CircleShape& Engine::getShape() const{
 
 void Engine::update(){
     sf::Vector2f currPosition = m_shape.getPosition();
-    if (currPosition.x < 0  || currPosition.x > 480){
+    
+    float radius = m_shape.getShape().getRadius();
+    
+    if (currPosition.x < 1  || currPosition.x >= m_sizeOfWindow.x - 2*radius){
         m_shape.changeDirectionToX();
     }
     
-    if (currPosition.y < 0  || currPosition.y > 480){
+    if (currPosition.y < 1  || currPosition.y >= m_sizeOfWindow.y - 2*radius){
         m_shape.changeDirectionToY();
     }
     
